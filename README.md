@@ -1,3 +1,4 @@
 # team05
 練習用リポジトリ
 SuzukiTsuyoshi
+TakahashiDaiki
