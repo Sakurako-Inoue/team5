@@ -1,2 +1,3 @@
 # team05
 練習用リポジトリ
+Suzuki Tsuyoshi
