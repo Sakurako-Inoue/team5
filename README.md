@@ -2,3 +2,4 @@
 練習用リポジトリ
 SuzukiTsuyoshi
 TakahashiDaiki
+InoueSakurako
