@@ -1,7 +1,9 @@
-class Character{
-  private int hp,attack_point;
+class Chara{
+  int hp,attack_point;
   
-  Character(){
+  Chara(){
+    hp=0;
+    attack_point=0;
   }
   
   void Attack(){
@@ -11,7 +13,5 @@ class Character{
   }
   void setHP(int hp){
     this.hp=hp;
-  }
-  Character(){
   }
 }
