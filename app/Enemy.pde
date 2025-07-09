@@ -7,7 +7,7 @@ class Enemy extends Character{
   }
   
   void attack(Player player){
-    player setHP(player getHP()-this.attack_point);
+    player.setHP(player.getHP()-this.attack_point);
     
   }
   
@@ -17,4 +17,9 @@ class Enemy extends Character{
   
   void setHP(int hp){
     super();
+  }
+  
+  void paint(){
+    fill(0, 255, 255);
+    image(TOKYO,0,0, 100, 100);
   }

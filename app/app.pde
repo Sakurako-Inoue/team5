@@ -1,4 +1,6 @@
 Puzzle[] puzzles;
+Enemy[] enemy;
+PImage TOKYO;
 
 int situation;
 int situ1Cnt;
@@ -8,8 +10,10 @@ int selected1,selected2;
 void setup(){
   size(450,800);
   background(200);
+  TOKYO = loadImage("TOKYO.png");
   situation=0;
   puzzles = new Puzzle[25];
+  enemy = new Enemy[1];
   selected1 = selected2 = -1;
   for(int i = 0; i < puzzles.length; i++){
     puzzles[i] = new Puzzle(i/5,i%5);
@@ -18,6 +22,7 @@ void setup(){
 
 void draw(){
   background(200);
+  enemy[0].paint();
   for(int i = 0; i < puzzles.length; i++){
      puzzles[i].paint();
   }
