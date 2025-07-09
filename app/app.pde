@@ -1,5 +1,6 @@
 Puzzle[] puzzles;
-Enemy[] enemys;
+Enemy enemy;
+Player player;
 PImage TOKYO;
 
 int situation;
@@ -13,8 +14,8 @@ void setup(){
   TOKYO = loadImage("TOKYO.png");
   situation=0;
   puzzles = new Puzzle[25];
-  enemys = new Enemy[1];
-  enemys[0] = new Enemy();
+  enemy = new Enemy();
+  player = new Player();
   selected1 = selected2 = -1;
   for(int i = 0; i < puzzles.length; i++){
     puzzles[i] = new Puzzle(i/5,i%5);
@@ -23,7 +24,8 @@ void setup(){
 
 void draw(){
   background(200);
-  enemys[0].paint();
+  player.paint();
+  enemy.paint();
   for(int i = 0; i < puzzles.length; i++){
      puzzles[i].paint();
   }

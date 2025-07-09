@@ -54,6 +54,7 @@ class Puzzle{
         puzzles[(x-1)*5+y].setMatched(true);
         this.matched = true;
         puzzles[(x+1)*5+y].setMatched(true);
+        player.attack(enemy);
       } 
     }
     if(y > 0 && y < 4 && this.element != -1){

@@ -1,9 +1,7 @@
 class Chara{
-  int hp,attack_point;
+  int max_hp,hp,attack_point;
   
   Chara(){
-    hp=0;
-    attack_point=0;
   }
   
   void Attack(){
@@ -13,5 +11,11 @@ class Chara{
   }
   void setHP(int hp){
     this.hp=hp;
+    if(hp<0){
+      this.hp=0;
+    }
+    else if(hp>max_hp){
+      this.hp=max_hp;
+    }
   }
 }
