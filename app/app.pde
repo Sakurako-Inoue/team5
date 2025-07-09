@@ -4,9 +4,10 @@ Player player;
 PImage TOKYO;
 
 int situation;
-int situ1Cnt;
+int situ1cnt;
 int selected1,selected2;
-
+boolean matched;
+boolean enemyturn;
 
 void setup(){
   size(450,800);
@@ -17,6 +18,8 @@ void setup(){
   enemy = new Enemy();
   player = new Player();
   selected1 = selected2 = -1;
+  matched = false;
+  enemyturn = false;
   for(int i = 0; i < puzzles.length; i++){
     puzzles[i] = new Puzzle(i/5,i%5);
   }
@@ -32,22 +35,32 @@ void draw(){
   if(situation == 1){  //落下処理
     gravity(puzzles);
     supply(puzzles);
-    situ1Cnt++;
-    if(situ1Cnt > 5){
-      situ1Cnt = 0;
+    situ1cnt++;
+    if(situ1cnt > 5){
+      situ1cnt = 0;
       situation = 0;
     }
     delay(200);
   }
   else if(situation == 0){  //消えるパズルがあるか確認
+    matched=false;
     for(int i = 0; i < puzzles.length; i++){
        puzzles[i].findMatch(puzzles);
+       if(puzzles[i].getMatched()){
+         matched = true;
+       }
     }
-    for(int i = 0; i < puzzles.length; i++){
+    if(matched){
+      for(int i = 0; i < puzzles.length; i++){
        puzzles[i].remove();
+      }
+      situation = 1;
+      delay(200);
     }
-    situation = 1;
-    delay(200);
+    else if(enemyturn){
+      enemy.attack(player);
+      enemyturn = false;
+    }
   }
 }
 
@@ -64,6 +77,7 @@ void mousePressed(){
          puzzles[selected2].setElement(tmp);
          selected1=selected2=-1;
          situation = 0;
+         enemyturn = true;
        }
      }
   }

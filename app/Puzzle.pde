@@ -40,6 +40,10 @@ class Puzzle{
   void setMatched(boolean matched){
     this.matched = matched;
   }
+  
+  boolean getMatched(){
+    return this.matched;
+  }
     
   int getElement(){
     return this.element;
