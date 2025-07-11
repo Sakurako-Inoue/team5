@@ -32,7 +32,11 @@ void draw(){
   for(int i = 0; i < puzzles.length; i++){
      puzzles[i].paint();
   }
-  if(situation == 1){  //落下処理
+  
+  if(player.getHP() == 0 || enemy.getHP() == 0){
+    gameover();
+  }
+  else if(situation == 1){  //落下処理
     gravity(puzzles);
     supply(puzzles);
     situ1cnt++;
@@ -65,6 +69,14 @@ void draw(){
 }
 
 void mousePressed(){
+  if(player.getHP() == 0 || enemy.getHP() == 0){
+    if ( mouseX >= 125 && mouseX <= 125 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
+      setup();
+    }
+    if ( mouseX >= 240 && mouseX <= 240 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
+      exit();
+    }
+  }
   for(int i = 0; i < puzzles.length; i++){
      if(puzzles[i].selected()){
        if(selected1 == -1){
@@ -100,4 +112,19 @@ void supply(Puzzle[] puzzles){
       puzzles[j*5].setElement((int)random(5));
     }
   }
+}
+
+void gameover(){
+  fill(250, 0, 0);
+  rect(100,450,250,175);
+  fill(0,255,0);
+  rect(125,550,75,25);
+  rect(240,550,75,25);
+  textSize(50);
+  fill(255,255,255);
+  text("next game?",110,500);
+  textSize(25);
+  fill(0,0,0);
+  text("next",135,570);
+  text("quit",250,570);
 }
