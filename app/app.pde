@@ -16,25 +16,30 @@ int max_stage=5;
 void setup(){
   size(360,640);
   background(200);
-  BACK = loadImage("背景1.png");
   DISPLAY = loadImage("文字背景.png");
   if(stage==0){
     ENEMY = loadImage("enemy4.png");
+    BACK = loadImage("背景1.png");
   }
   else if(stage==1){
     ENEMY = loadImage("enemy2.png");
+    BACK = loadImage("背景1.png");
   }
   else if(stage==2){
     ENEMY = loadImage("enemy1.png");
+    BACK = loadImage("背景1.png");
   }
   else if(stage==3){
     ENEMY = loadImage("enemy6.png");
+    BACK = loadImage("背景2.png");
   }
   else if(stage==4){
     ENEMY = loadImage("enemy3.png");
+    BACK = loadImage("背景2.png");
   }
   else if(stage==5){
     ENEMY = loadImage("enemy5.png");
+    BACK = loadImage("背景2.png");
   }
   situation=0;
   puzzles = new Puzzle[25];
