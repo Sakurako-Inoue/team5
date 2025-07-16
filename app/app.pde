@@ -90,7 +90,9 @@ void draw(){
 void mousePressed(){
   if(player.getHP() == 0 || enemy.getHP() == 0){
     if ( mouseX >= 125 && mouseX <= 125 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
-      stage++;
+      if(enemy.getHP() == 0){
+        stage++;
+      }
       if(stage>max_stage){
         stage=0;
       }
