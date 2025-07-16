@@ -1,7 +1,7 @@
 Puzzle[] puzzles;
 Enemy enemy;
 Player player;
-PImage TOKYO;
+PImage ENEMY;
 
 int situation;
 int situ1cnt;
@@ -12,7 +12,7 @@ boolean enemyturn;
 void setup(){
   size(450,800);
   background(200);
-  TOKYO = loadImage("TOKYO.png");
+  ENEMY = loadImage("enemy4.png");
   situation=0;
   puzzles = new Puzzle[25];
   enemy = new Enemy();
