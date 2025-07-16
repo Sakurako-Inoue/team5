@@ -43,6 +43,7 @@ class Enemy extends Chara{
     rect(100,10,250,10);
     fill(0,255,0);
     rect(100,10,250*hp/max_hp,10);
+    image(BACK,0,25,700,300);
     image(ENEMY,75,25, 300, 300);
   }
 }

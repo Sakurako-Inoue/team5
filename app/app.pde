@@ -2,6 +2,7 @@ Puzzle[] puzzles;
 Enemy enemy;
 Player player;
 PImage ENEMY;
+PImage BACK;
 
 int situation;
 int situ1cnt;
@@ -14,6 +15,7 @@ int max_stage=5;
 void setup(){
   size(450,800);
   background(200);
+  BACK = loadImage("背景1.png");
   if(stage==0){
     ENEMY = loadImage("enemy4.png");
   }
