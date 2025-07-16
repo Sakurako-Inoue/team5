@@ -3,6 +3,7 @@ Enemy enemy;
 Player player;
 PImage ENEMY;
 PImage BACK;
+PImage DISPLAY;
 
 int situation;
 int situ1cnt;
@@ -16,6 +17,7 @@ void setup(){
   size(450,800);
   background(200);
   BACK = loadImage("背景1.png");
+  DISPLAY = loadImage("文字背景.png");
   if(stage==0){
     ENEMY = loadImage("enemy4.png");
   }
@@ -142,14 +144,19 @@ void supply(Puzzle[] puzzles){
 }
 
 void gameover(){
-  fill(250, 0, 0);
-  rect(100,450,250,175);
+  image(DISPLAY,50,400,350,300);
   fill(0,255,0);
   rect(125,550,75,25);
+  fill(255,0,0);
   rect(240,550,75,25);
   textSize(50);
-  fill(255,255,255);
-  text("next game?",110,500);
+  fill(0,0,0);
+  if(enemy.getHP() == 0){
+    text("YOU WIN!",120,525);
+  }
+  else{
+    text("YOU LOSE...",110,525);
+  }
   textSize(25);
   fill(0,0,0);
   text("next",135,570);
