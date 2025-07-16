@@ -8,7 +8,7 @@ class Puzzle{
   Puzzle(int x,int y){
     this.x = x;
     this.y = y;
-    r = 75;
+    r = 60;
     matched = false;
     element = (int)random(5);
   }
@@ -32,8 +32,8 @@ class Puzzle{
     else{
       fill(255,255,255);
     }
-    pos_x = 50+x*85;
-    pos_y = 400+y*85;
+    pos_x = 40+x*68;
+    pos_y = 320+y*68;
     ellipse(pos_x, pos_y, r, r);
   }
   

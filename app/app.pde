@@ -14,7 +14,7 @@ int stage=0;
 int max_stage=5;
 
 void setup(){
-  size(450,800);
+  size(360,640);
   background(200);
   BACK = loadImage("背景1.png");
   DISPLAY = loadImage("文字背景.png");
@@ -93,7 +93,7 @@ void draw(){
 
 void mousePressed(){
   if(player.getHP() == 0 || enemy.getHP() == 0){
-    if ( mouseX >= 125 && mouseX <= 125 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
+    if ( mouseX >= 100 && mouseX <= 100 + 60 && mouseY >= 440 && mouseY <= 440 + 20 ){
       if(enemy.getHP() == 0){
         stage++;
       }
@@ -102,7 +102,7 @@ void mousePressed(){
       }
       setup();
     }
-    if ( mouseX >= 240 && mouseX <= 240 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
+    if ( mouseX >= 192 && mouseX <= 192 + 60 && mouseY >= 440 && mouseY <= 440 + 20 ){
       exit();
     }
   }
@@ -144,21 +144,21 @@ void supply(Puzzle[] puzzles){
 }
 
 void gameover(){
-  image(DISPLAY,50,400,350,300);
+  image(DISPLAY,40,320,280,240);
   fill(0,255,0);
-  rect(125,550,75,25);
+  rect(100,440,60,20);
   fill(255,0,0);
-  rect(240,550,75,25);
-  textSize(50);
+  rect(192,440,60,20);
+  textSize(40);
   fill(0,0,0);
   if(enemy.getHP() == 0){
-    text("YOU WIN!",120,525);
+    text("YOU WIN!",96,420);
   }
   else{
-    text("YOU LOSE...",110,525);
+    text("YOU LOSE...",88,420);
   }
-  textSize(25);
+  textSize(20);
   fill(0,0,0);
-  text("next",135,570);
-  text("quit",250,570);
+  text("next",108,456);
+  text("quit",200,456);
 }

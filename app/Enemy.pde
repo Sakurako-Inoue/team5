@@ -40,10 +40,10 @@ class Enemy extends Chara{
   
   void paint(){
     fill(255, 0, 0);
-    rect(100,10,250,10);
+    rect(80,8,200,8);
     fill(0,255,0);
-    rect(100,10,250*hp/max_hp,10);
-    image(BACK,0,25,700,300);
-    image(ENEMY,75,25, 300, 300);
+    rect(80,8,200*hp/max_hp,8);
+    image(BACK,0,20,560,240);
+    image(ENEMY,60,20, 240, 240);
   }
 }

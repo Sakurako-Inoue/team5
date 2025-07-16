@@ -13,11 +13,11 @@ class Player extends Chara{
   
   void paint(){
     fill(255,0,0);
-    rect(10,330,420,25);
+    rect(8,264,336,20);
     fill(0,255,0);
-    rect(10,330,420*hp/max_hp,25);
-    textSize(25);
+    rect(8,264,336*hp/max_hp,20);
+    textSize(20);
     fill(0,0,0);
-    text(hp+"/"+max_hp,10,350);
+    text(hp+"/"+max_hp,8,280);
   }
 }
