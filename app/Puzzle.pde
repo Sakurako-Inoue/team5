@@ -66,6 +66,7 @@ class Puzzle{
         puzzles[x*5+y-1].setMatched(true);
         this.matched = true;
         puzzles[x*5+y+1].setMatched(true);
+        player.attack(enemy);
       } 
     }
   }

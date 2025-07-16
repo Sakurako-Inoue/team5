@@ -8,11 +8,30 @@ int situ1cnt;
 int selected1,selected2;
 boolean matched;
 boolean enemyturn;
+int stage=0;
+int max_stage=5;
 
 void setup(){
   size(450,800);
   background(200);
-  ENEMY = loadImage("enemy4.png");
+  if(stage==0){
+    ENEMY = loadImage("enemy4.png");
+  }
+  else if(stage==1){
+    ENEMY = loadImage("enemy2.png");
+  }
+  else if(stage==2){
+    ENEMY = loadImage("enemy1.png");
+  }
+  else if(stage==3){
+    ENEMY = loadImage("enemy6.png");
+  }
+  else if(stage==4){
+    ENEMY = loadImage("enemy3.png");
+  }
+  else if(stage==5){
+    ENEMY = loadImage("enemy5.png");
+  }
   situation=0;
   puzzles = new Puzzle[25];
   enemy = new Enemy();
@@ -71,6 +90,10 @@ void draw(){
 void mousePressed(){
   if(player.getHP() == 0 || enemy.getHP() == 0){
     if ( mouseX >= 125 && mouseX <= 125 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
+      stage++;
+      if(stage>max_stage){
+        stage=0;
+      }
       setup();
     }
     if ( mouseX >= 240 && mouseX <= 240 + 75 && mouseY >= 550 && mouseY <= 550 + 25 ){
