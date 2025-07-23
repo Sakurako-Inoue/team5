@@ -4,6 +4,8 @@ Player player;
 PImage ENEMY;
 PImage BACK;
 PImage DISPLAY;
+PImage WIN;
+PImage LOSE;
 
 int situation;
 int situ1cnt;
@@ -98,7 +100,7 @@ void draw(){
 
 void mousePressed(){
   if(player.getHP() == 0 || enemy.getHP() == 0){
-    if ( mouseX >= 100 && mouseX <= 100 + 60 && mouseY >= 440 && mouseY <= 440 + 20 ){
+    if ( mouseX >= 108 && mouseX <= 108 + 60 && mouseY >= 456 && mouseY <= 456 + 20 ){
       if(enemy.getHP() == 0){
         stage++;
       }
@@ -107,7 +109,7 @@ void mousePressed(){
       }
       setup();
     }
-    if ( mouseX >= 192 && mouseX <= 192 + 60 && mouseY >= 440 && mouseY <= 440 + 20 ){
+    if ( mouseX >= 200 && mouseX <= 200 + 60 && mouseY >= 456 && mouseY <= 456 + 20 ){
       exit();
     }
   }
@@ -151,19 +153,21 @@ void supply(Puzzle[] puzzles){
 void gameover(){
   image(DISPLAY,40,320,280,240);
   fill(0,255,0);
-  rect(100,440,60,20);
+  rect(100,470,60,20);
   fill(255,0,0);
-  rect(192,440,60,20);
+  rect(192,470,60,20);
   textSize(40);
   fill(0,0,0);
   if(enemy.getHP() == 0){
-    text("YOU WIN!",96,420);
+    WIN = loadImage("youwin.png");
+    image(WIN,85, 370, 200, 100);
   }
   else{
-    text("YOU LOSE...",88,420);
+    LOSE = loadImage("youlose.png");
+    image(LOSE,80, 360, 240, 120);
   }
   textSize(20);
   fill(0,0,0);
-  text("next",108,456);
-  text("quit",200,456);
+  text("next",108,485);
+  text("quit",200,485);
 }
