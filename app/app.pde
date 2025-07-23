@@ -100,7 +100,7 @@ void draw(){
 
 void mousePressed(){
   if(player.getHP() == 0 || enemy.getHP() == 0){
-    if ( mouseX >= 108 && mouseX <= 108 + 60 && mouseY >= 456 && mouseY <= 456 + 20 ){
+    if ( mouseX >= 100 && mouseX <= 100 + 60 && mouseY >= 470 && mouseY <= 470 + 20 ){
       if(enemy.getHP() == 0){
         stage++;
       }
@@ -109,25 +109,27 @@ void mousePressed(){
       }
       setup();
     }
-    if ( mouseX >= 200 && mouseX <= 200 + 60 && mouseY >= 456 && mouseY <= 456 + 20 ){
+    if ( mouseX >= 192 && mouseX <= 192 + 60 && mouseY >= 470 && mouseY <= 470 + 20 ){
       exit();
     }
   }
-  for(int i = 0; i < puzzles.length; i++){
-     if(puzzles[i].selected()){
-       if(selected1 == -1){
-         selected1=i;
+  if(situation!=1){
+    for(int i = 0; i < puzzles.length; i++){
+       if(puzzles[i].selected()){
+         if(selected1 == -1){
+           selected1=i;
+         }
+         else if(selected2 == -1){
+           selected2=i;
+           int tmp=puzzles[selected1].getElement();
+           puzzles[selected1].setElement(puzzles[selected2].getElement());
+           puzzles[selected2].setElement(tmp);
+           selected1=selected2=-1;
+           situation = 0;
+           enemyturn = true;
+         }
        }
-       else if(selected2 == -1){
-         selected2=i;
-         int tmp=puzzles[selected1].getElement();
-         puzzles[selected1].setElement(puzzles[selected2].getElement());
-         puzzles[selected2].setElement(tmp);
-         selected1=selected2=-1;
-         situation = 0;
-         enemyturn = true;
-       }
-     }
+    }
   }
 }
 
@@ -161,13 +163,18 @@ void gameover(){
   if(enemy.getHP() == 0){
     WIN = loadImage("youwin.png");
     image(WIN,85, 370, 200, 100);
+    textSize(20);
+    fill(0,0,0);
+    text("next",108,485);
+    text("quit",200,485);
   }
   else{
     LOSE = loadImage("youlose.png");
     image(LOSE,80, 360, 240, 120);
+    textSize(18);
+    fill(0,0,0);
+    text("retry",108,485);
+    textSize(20);
+    text("quit",200,485);
   }
-  textSize(20);
-  fill(0,0,0);
-  text("next",108,485);
-  text("quit",200,485);
 }
